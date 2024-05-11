@@ -1,4 +1,4 @@
-package com.fabAdventure.fabAdventure.controllers;
+package com.fabAdventure.controllers;
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fabAdventure.fabAdventure.service.UserService;
 import com.fabAdventure.models.UserAndCards;
 import com.fabAdventure.models.Users;
 import com.fabAdventure.models.UsersRequest;
+import com.fabAdventure.service.UserService;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
