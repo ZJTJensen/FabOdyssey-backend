@@ -102,7 +102,7 @@ public class UserService {
 
             while (resultSet.next()) {
                 Cards card = new Cards();
-                card.setIdentifier(resultSet.getString("cardIdentifier"));
+                card.setIdentifier(resultSet.getString("cardidentifier"));
                 card.setSlug(resultSet.getString("slug"));
                 cards.add(card);
             }
@@ -173,7 +173,7 @@ public class UserService {
     public void addCardToUserDeck(UsersRequest message){
         try (java.sql.Connection connection = dataSource.getConnection();
         PreparedStatement preparedStatement = connection.prepareStatement(
-            "INSERT INTO cards(\"slug\", \"cardIdentifier\") VALUES (?, ?)")) {
+            "INSERT INTO cards(\"slug\", \"cardidentifier\") VALUES (?, ?)")) {
                 System.err.println("slug: " + message.getSlug());
                 System.err.println("card: " + message.getCard().getCardIdentifier());
             preparedStatement.setString(1, message.getSlug());
