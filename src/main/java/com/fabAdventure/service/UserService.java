@@ -29,6 +29,8 @@ public class UserService {
     
   public UserService() {
     try{
+        System.err.println("INSTANCE_HOST: " + INSTANCE_HOST);
+        System.err.println(DB_USER);
         HikariConfig config = new HikariConfig();
         config.setJdbcUrl("jdbc:postgresql://" + INSTANCE_HOST + "/fabodyssey");
         config.setUsername(DB_USER); 
