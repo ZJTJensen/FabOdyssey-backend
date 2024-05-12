@@ -27,25 +27,25 @@ public class UserService {
 
 
     
-  public UserService() {
-    try{
-        HikariConfig config = new HikariConfig();
-        config.setJdbcUrl("jdbc:postgresql://" + INSTANCE_HOST + "/fabodyssey");
-        config.setUsername(DB_USER); 
-        config.setPassword(DB_PASS);
-        config.setMaximumPoolSize(5);
-        config.setMinimumIdle(5);
-        config.setConnectionTimeout(10000); // 10 seconds
-        config.setIdleTimeout(600000); // 10 minutes
-        config.setMaxLifetime(1800000);
-        LOGGER.info("config: " + config);   
-        this.dataSource = new HikariDataSource(config);
-    } catch (Exception e) {
-        LOGGER.error("Error creating HikariDataSource", e);
-        throw e;
-    }
+//   public UserService() {
+//     try{
+//         HikariConfig config = new HikariConfig();
+//         config.setJdbcUrl("jdbc:postgresql://" + INSTANCE_HOST + "/fabodyssey");
+//         config.setUsername(DB_USER); 
+//         config.setPassword(DB_PASS);
+//         config.setMaximumPoolSize(5);
+//         config.setMinimumIdle(5);
+//         config.setConnectionTimeout(10000); // 10 seconds
+//         config.setIdleTimeout(600000); // 10 minutes
+//         config.setMaxLifetime(1800000);
+//         LOGGER.info("config: " + config);   
+//         this.dataSource = new HikariDataSource(config);
+//     } catch (Exception e) {
+//         LOGGER.error("Error creating HikariDataSource", e);
+//         throw e;
+//     }
 
-}
+// }
   
 
     public Users doesUserExist(String slug) throws SQLException, ClassNotFoundException {
