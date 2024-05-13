@@ -14,7 +14,7 @@ import com.fabAdventure.models.UsersRequest;
 import com.fabAdventure.service.UserService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://fabodyssey-frontend-28fbaa3cb5b9.herokuapp.com")
 @RequestMapping("/")
 
 public class UserController {
