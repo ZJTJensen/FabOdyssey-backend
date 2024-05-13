@@ -33,7 +33,7 @@ public class UserService {
         System.err.println(DB_USER);
         System.err.println(DB_PASS);
         HikariConfig config = new HikariConfig();
-        config.setJdbcUrl("jdbc:postgresql://" + INSTANCE_HOST + ":5432/"+ System.getenv("DB_NAME"));
+        config.setJdbcUrl("jdbc:postgresql://" + INSTANCE_HOST + ":5432/"+ System.getenv("DB_NAME")+ "?sslmode=require");
         config.setUsername(DB_USER); 
         config.setPassword(DB_PASS);
         config.setMaximumPoolSize(5);
