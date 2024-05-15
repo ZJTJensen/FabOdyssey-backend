@@ -108,6 +108,7 @@ public class UserService {
                 Cards card = new Cards();
                 card.setIdentifier(resultSet.getString("cardidentifier"));
                 card.setSlug(resultSet.getString("slug"));
+                card.setToBeSelected(resultSet.getBoolean("tobeselected"));
                 cards.add(card);
             }
         } catch (SQLException e) {
