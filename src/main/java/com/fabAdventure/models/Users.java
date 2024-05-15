@@ -15,6 +15,7 @@ public class Users {
     @Column private String phone;
 	@Column private String userName;
 	@Column private int userLevel;
+	@Column private Boolean selectedCard;
 	// @Column private Decks deck;
 
 
@@ -24,6 +25,13 @@ public class Users {
 	}
 	public void setSlug(String slug) {
 		this.slug = slug;
+	}
+
+	public Boolean getSelectedCard() {
+		return selectedCard;
+	}
+	public void setSelectedCard(Boolean selectedCard) {
+		this.selectedCard = selectedCard;
 	}
 
     public String getCreatedPhone() {
