@@ -6,6 +6,7 @@ import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
+import jnr.ffi.Struct.Boolean;
 
 @Entity
 @Table(name ="CARDS")
@@ -13,6 +14,7 @@ public class Cards {
     @Column private String slug;
     @Column private String cardIdentifier;
     @Column private String identifier;
+    @Column private Boolean toBeSelected;
     @Column private String name;
     @Column private String rarity;
     @Embedded private Stats stats;
@@ -38,6 +40,13 @@ public class Cards {
 
     public void setIdentifier(String identifier) {
         this.identifier = identifier;
+    }
+    public Boolean getToBeSelected() {
+        return toBeSelected;
+    }
+
+    public void setToBeSelected(Boolean toBeSelected) {
+        this.toBeSelected = toBeSelected;
     }
 
     public String getSlug() {
