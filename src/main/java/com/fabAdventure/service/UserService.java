@@ -65,6 +65,7 @@ public class UserService {
                     user.setPhone(resultSet.getString("phoneNumber"));
                     user.setUserLevel(resultSet.getInt("userLevel"));
                     user.setUserName(resultSet.getString("userName"));
+                    user.setSelectCard(resultSet.getBoolean("selectCard"));
                 }
             }
         }
