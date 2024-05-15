@@ -198,7 +198,7 @@ public class UserService {
         try (PreparedStatement preparedStatement = connection.prepareStatement(
             "UPDATE users SET selectcard = ? WHERE slug = ?")) {
             preparedStatement.setBoolean(1, false); 
-            preparedStatement.setString(1, message.getSlug());
+            preparedStatement.setString(2, message.getSlug());
             preparedStatement.executeUpdate();
         }
     } catch (SQLException e) {
