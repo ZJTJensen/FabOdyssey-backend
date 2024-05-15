@@ -178,14 +178,14 @@ public class UserService {
           try (java.sql.Connection connection = dataSource.getConnection()) {
         // Delete existing cards for the user
         try (PreparedStatement preparedStatement = connection.prepareStatement(
-            "DELETE FROM cards WHERE \"slug\" = ? AND \"toBeSelected\" = true")) {
+            "DELETE FROM cards WHERE slug = ? AND toBeSelected = true")) {
             preparedStatement.setString(1, message.getSlug());
             preparedStatement.executeUpdate();
         }
 
         // Insert new card
         try (PreparedStatement preparedStatement = connection.prepareStatement(
-                "INSERT INTO cards(\"slug\", \"cardidentifier\") VALUES (?, ?)")) {
+                "INSERT INTO cards(slug, cardidentifier) VALUES (?, ?)")) {
                     System.err.println("slug: " + message.getSlug());
                     System.err.println("card: " + message.getCard().getCardIdentifier());
                 preparedStatement.setString(1, message.getSlug());
@@ -194,7 +194,8 @@ public class UserService {
         }
         // Update selectcard in users table
         try (PreparedStatement preparedStatement = connection.prepareStatement(
-            "UPDATE users SET \"selectcard\" = false WHERE \"slug\" = ?")) {
+            "UPDATE users SET selectcard = ? WHERE slug = ?")) {
+            preparedStatement.setBoolean(1, false); 
             preparedStatement.setString(1, message.getSlug());
             preparedStatement.executeUpdate();
         }
@@ -204,7 +205,7 @@ public class UserService {
     }
     public ArrayList<Cards> getCardsChosen(UsersRequest message){
         ArrayList<Cards> chosenCards = new ArrayList<>();
-        String sql = "SELECT * FROM cards WHERE \"slug\" = ? AND \"toBeSelected\" = true";
+        String sql = "SELECT * FROM cards WHERE slug = ? AND toBeSelected = true";
 
         try (java.sql.Connection connection = dataSource.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
@@ -228,7 +229,7 @@ public class UserService {
          try (java.sql.Connection connection = dataSource.getConnection()) {
         // Prepare the statement for inserting into cards table
         try (PreparedStatement preparedStatement = connection.prepareStatement(
-            "INSERT INTO cards(\"slug\", \"cardidentifier\", \"tobeselected\") VALUES (?, ?, ?)")) {
+            "INSERT INTO cards(slug, cardidentifier, tobeselected) VALUES (?, ?, ?)")) {
 
             // Loop over each card in the cardsToShow list
             ArrayList<Cards> selectedCards = message.getSelectCards();
@@ -244,8 +245,9 @@ public class UserService {
 
         // Insert into users table
         try (PreparedStatement preparedStatement = connection.prepareStatement(
-            "INSERT INTO users(\"selectcard\") VALUES (?)")) {
+            "UPDATE users SET selectcard = ? WHERE slug = ?")) {
             preparedStatement.setBoolean(1, true);
+            preparedStatement.setString(2, message.getSlug());
             preparedStatement.executeUpdate();
         }
     } catch (SQLException e) {
