@@ -1,5 +1,6 @@
 package com.fabAdventure.models;
 
+import java.util.ArrayList;
 import jakarta.persistence.Column;
 
 
@@ -9,7 +10,7 @@ public class UsersRequest {
 	@Column private Cards card;
 	@Column private String phoneNumber; 
 	@Column private Decks deck;
-    @Column private SelectCards selectCards;
+    @Column private ArrayList<Cards> selectCards;
     @Column private String user; 
     @Column private Integer userLevel; 
 
@@ -20,10 +21,10 @@ public class UsersRequest {
 		this.slug = slug;
 	}
 
-    public SelectCards getSelectCards() {
+    public ArrayList<Cards> getSelectCards() {
 		return selectCards;
 	}
-	public void setSelectCards(SelectCards cards) {
+	public void setSelectCards(ArrayList<Cards> cards) {
 		this.selectCards = cards;
 	}
 	public Cards getCard() {
