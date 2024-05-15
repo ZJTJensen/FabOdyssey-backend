@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fabAdventure.models.Cards;
+import com.fabAdventure.models.SelectCards;
 import com.fabAdventure.models.UserAndCards;
 import com.fabAdventure.models.Users;
 import com.fabAdventure.models.UsersRequest;
@@ -126,12 +128,14 @@ public class UserController {
     }
 
 	@PostMapping("/user/get-select-card")
-	public void getSelectCards(@RequestBody UsersRequest message) {
+	public ArrayList<Cards> getSelectCards(@RequestBody UsersRequest message) {
+		ArrayList<Cards> cards = new ArrayList<Cards>();
 		try{
-			this.userService.getCardsChosen(message);
+			cards = this.userService.getCardsChosen(message);
 		} catch (Exception e) {
 			System.out.println("error e" + e.getMessage().toString());
 		}
+		return cards;
     }
 
 }
