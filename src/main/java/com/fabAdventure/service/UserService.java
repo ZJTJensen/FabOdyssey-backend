@@ -121,7 +121,7 @@ public class UserService {
     public void resetUserLevel(String slug) {
         try (java.sql.Connection connection = dataSource.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(
-                 "UPDATE users SET userlevel = 0 WHERE slug = ?")) {
+                "UPDATE users SET userlevel = 0, selectcard = false WHERE slug = ?")) {
             preparedStatement.setString(1, slug);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
