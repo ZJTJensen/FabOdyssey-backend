@@ -14,7 +14,7 @@ public class Cards {
     @Column private String slug;
     @Column private String cardIdentifier;
     @Column private String identifier;
-    @Column private Boolean toBeSelected;
+    @Column private Boolean tobeselected;
     @Column private String name;
     @Column private String rarity;
     @Embedded private Stats stats;
@@ -42,11 +42,11 @@ public class Cards {
         this.identifier = identifier;
     }
     public Boolean getToBeSelected() {
-        return toBeSelected;
+        return tobeselected;
     }
 
-    public void setToBeSelected(Boolean toBeSelected) {
-        this.toBeSelected = toBeSelected;
+    public void setToBeSelected(Boolean tobeselected) {
+        this.tobeselected = tobeselected;
     }
 
     public String getSlug() {
