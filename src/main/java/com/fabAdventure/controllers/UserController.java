@@ -115,9 +115,23 @@ public class UserController {
 		}
     }
 
-	@PostMapping("/user/usersInBracket")
-	public boolean getUsersInBracket(@RequestBody UsersRequest message) {
-    	return userService.getUsersInBracket(message.getSlug());
+	
+	@PostMapping("/user/select-cards")
+	public void selectCards(@RequestBody UsersRequest message) {
+		try{
+			this.userService.cardsChosen(message);
+		} catch (Exception e) {
+			System.out.println("error e" + e.getMessage().toString());
+		}
+    }
+
+	@PostMapping("/user/get-select-card")
+	public void getSelectCards(@RequestBody UsersRequest message) {
+		try{
+			this.userService.getCardsChosen(message);
+		} catch (Exception e) {
+			System.out.println("error e" + e.getMessage().toString());
+		}
     }
 
 }

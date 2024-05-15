@@ -8,7 +8,8 @@ public class UsersRequest {
     @Column private String slug;
 	@Column private Cards card;
 	@Column private String phoneNumber; 
-	@Column private Decks deck; 
+	@Column private Decks deck;
+    @Column private SelectCards cards;
     @Column private String user; 
     @Column private Integer userLevel; 
 
@@ -17,6 +18,13 @@ public class UsersRequest {
 	}
 	public void setSlug(String slug) {
 		this.slug = slug;
+	}
+
+    public SelectCards getSelectedCards() {
+		return cards;
+	}
+	public void setSelectedCards(SelectCards cards) {
+		this.cards = cards;
 	}
 	public Cards getCard() {
         return this.card;
