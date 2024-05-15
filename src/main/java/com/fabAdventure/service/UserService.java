@@ -231,7 +231,7 @@ public class UserService {
             "INSERT INTO cards(\"slug\", \"cardidentifier\", \"tobeselected\") VALUES (?, ?, ?)")) {
 
             // Loop over each card in the cardsToShow list
-            ArrayList<Cards> selectedCards = message.getSelectedCards().getCards();
+            ArrayList<Cards> selectedCards = message.getSelectCards().getCards();
             for (Cards card : selectedCards) {
                 System.err.println("slug: " + message.getSlug());
                 System.err.println("card: " + card.getCardIdentifier());
