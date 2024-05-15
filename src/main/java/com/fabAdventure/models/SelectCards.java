@@ -6,13 +6,13 @@ import jakarta.persistence.Column;
 
 public class SelectCards {
     @Column 
-    private ArrayList<Cards> cards;
+    private ArrayList<Cards> selectCards;
 
     public ArrayList<Cards> getCards() {
-        return cards;
+        return selectCards;
     }
 
     public void setCards(ArrayList<Cards> cards) {
-        this.cards = cards;
+        this.selectCards = cards;
     }
 }
