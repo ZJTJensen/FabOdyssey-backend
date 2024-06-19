@@ -12,7 +12,6 @@ import org.slf4j.LoggerFactory;
 
 import com.fabAdventure.models.Cards;
 import com.fabAdventure.models.Decks;
-import com.fabAdventure.models.SelectCards;
 import com.fabAdventure.models.Users;
 import com.fabAdventure.models.UsersRequest;
 import com.zaxxer.hikari.HikariConfig;
