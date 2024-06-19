@@ -102,7 +102,7 @@ public class UserController {
 	@PostMapping("/user/create")
 	public void createAccount(@RequestBody UsersRequest message) {
 		try {
-			this.userService.creteUser(message.getPhoneNumber(), message.getDeck(), message.getUser());
+			this.userService.creteUser(message.getPhoneNumber(), message.getDeck(), message.getUser(), message.getLocation());
 		} catch (Exception e) {
 			System.out.println("error e" + e.getMessage().toString());
 		}
@@ -117,6 +117,14 @@ public class UserController {
 		}
     }
 
+	@PostMapping("/user/setLocation")
+	public void setLocation(@RequestBody UsersRequest message) {
+		try{
+			this.userService.setLocation(message);
+		} catch (Exception e) {
+			System.out.println("error e" + e.getMessage().toString());
+		}
+	}
 	
 	@PostMapping("/user/select-cards")
 	public void selectCards(@RequestBody UsersRequest message) {

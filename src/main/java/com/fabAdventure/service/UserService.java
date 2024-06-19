@@ -71,14 +71,15 @@ public class UserService {
         }
         return user;
     }
-    public void creteUser(String phone, Decks deck, String userName){
+    public void creteUser(String phone, Decks deck, String userName, String area){
         try (java.sql.Connection connection = dataSource.getConnection();
         PreparedStatement preparedStatement = connection.prepareStatement(
-            "INSERT INTO users(slug, phoneNumber, username, userlevel) VALUES (?, ?, ?, ?)")) {
+            "INSERT INTO users(slug, phoneNumber, username, userlevel, originlocation) VALUES (?, ?, ?, ?, ?)")) {
             preparedStatement.setString(1, deck.getSlug());
             preparedStatement.setString(2, phone);
             preparedStatement.setString(3, userName);
             preparedStatement.setInt(4, 0);
+            preparedStatement.setString(5, area);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -148,6 +149,18 @@ public class UserService {
                  "UPDATE users SET username = ? WHERE slug = ?")) {
             preparedStatement.setString(1, newUserName);
             preparedStatement.setString(2, slug);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void setLocation(UsersRequest message) {
+        try (java.sql.Connection connection = dataSource.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(
+                 "UPDATE users SET location = ? WHERE slug = ?")) {
+            preparedStatement.setString(1, message.getLocation());
+            preparedStatement.setString(2, message.getSlug());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
