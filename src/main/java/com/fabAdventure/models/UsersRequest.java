@@ -12,7 +12,7 @@ public class UsersRequest {
 	@Column private Decks deck;
     @Column private ArrayList<Cards> selectCards;
     @Column private String user; 
-    @Column private String location; 
+    @Column private String originlocation; 
     @Column private Integer userLevel; 
 
     public String getSlug() {
@@ -59,11 +59,11 @@ public class UsersRequest {
         this.user = user;
     }
     public String getLocation() {
-        return this.location;
+        return this.originlocation;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
+    public void setLocation(String originlocation) {
+        this.originlocation = originlocation;
     }
     public Integer getUserLevel() {
         return this.userLevel;
