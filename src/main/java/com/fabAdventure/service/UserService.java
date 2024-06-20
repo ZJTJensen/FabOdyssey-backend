@@ -72,6 +72,7 @@ public class UserService {
         return user;
     }
     public void creteUser(String phone, Decks deck, String userName, String area){
+        System.err.println("area: " + area);
         try (java.sql.Connection connection = dataSource.getConnection();
         PreparedStatement preparedStatement = connection.prepareStatement(
             "INSERT INTO users(slug, phoneNumber, username, originlocation, userlevel) VALUES (?, ?, ?, ?, ?)")) {
