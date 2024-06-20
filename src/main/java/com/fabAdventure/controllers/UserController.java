@@ -101,7 +101,7 @@ public class UserController {
 	@PostMapping("/user/create")
 	public void createAccount(@RequestBody UsersRequest message) {
 		try {
-			System.err.println(message);
+			System.err.println(message.getLocation() + message.getOriginLocation());
 			this.userService.creteUser(message.getPhoneNumber(), message.getDeck(), message.getUser(), message.getOriginLocation());
 		} catch (Exception e) {
 			System.out.println("error e" + e.getMessage().toString());
