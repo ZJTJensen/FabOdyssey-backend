@@ -74,12 +74,12 @@ public class UserService {
     public void creteUser(String phone, Decks deck, String userName, String area){
         try (java.sql.Connection connection = dataSource.getConnection();
         PreparedStatement preparedStatement = connection.prepareStatement(
-            "INSERT INTO users(slug, phoneNumber, username, userlevel, originlocation) VALUES (?, ?, ?, ?, ?)")) {
+            "INSERT INTO users(slug, phoneNumber, username, originlocation, userlevel) VALUES (?, ?, ?, ?, ?)")) {
             preparedStatement.setString(1, deck.getSlug());
             preparedStatement.setString(2, phone);
             preparedStatement.setString(3, userName);
-            preparedStatement.setInt(4, 0);
-            preparedStatement.setString(5, area);
+            preparedStatement.setString(4, area);
+            preparedStatement.setInt(5, 0);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
