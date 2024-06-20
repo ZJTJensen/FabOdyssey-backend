@@ -16,7 +16,7 @@ public class Users {
 	@Column private String userName;
 	@Column private int userLevel;
 	@Column private Boolean selectCard;
-	@Column private String location;
+	@Column private String originlocation;
 	// @Column private Decks deck;
 
 
@@ -35,11 +35,11 @@ public class Users {
 		this.selectCard = selectCard;
 	}
 	public String getLocation() {
-        return this.location;
+        return this.originlocation;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
+    public void setLocation(String originlocation) {
+        this.originlocation = originlocation;
     }
 
     public String getCreatedPhone() {
