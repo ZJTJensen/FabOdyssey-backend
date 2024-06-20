@@ -102,8 +102,8 @@ public class UserController {
 	public void createAccount(@RequestBody UsersRequest message) {
 		try {
 			System.out.println(message); // Add this line
-			System.err.println(message.getLocation() + message.getOriginLocation());
-			this.userService.creteUser(message.getPhoneNumber(), message.getDeck(), message.getUser(), message.getOriginLocation());
+			System.err.println(message.getLocation() + message.getOriginlocation());
+			this.userService.creteUser(message.getPhoneNumber(), message.getDeck(), message.getUser(), message.getOriginlocation());
 		} catch (Exception e) {
 			System.out.println("error e" + e.getMessage().toString());
 		}

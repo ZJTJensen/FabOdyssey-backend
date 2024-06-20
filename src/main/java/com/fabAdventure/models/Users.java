@@ -35,11 +35,11 @@ public class Users {
 	public void setSelectCard(Boolean selectCard) {
 		this.selectCard = selectCard;
 	}
-	public String getOriginLocation() {
+	public String getOriginlocation() {
         return this.originlocation;
     }
 
-    public void setOriginLocation(String originlocation) {
+    public void setOriginlocation(String originlocation) {
         this.originlocation = originlocation;
     }
 	public String getLocation() {

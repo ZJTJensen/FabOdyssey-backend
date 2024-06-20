@@ -65,7 +65,7 @@ public class UserService {
                     user.setUserLevel(resultSet.getInt("userLevel"));
                     user.setUserName(resultSet.getString("userName"));
                     user.setSelectCard(resultSet.getBoolean("selectCard"));
-                    user.setOriginLocation(resultSet.getString("originlocation"));
+                    user.setOriginlocation(resultSet.getString("originlocation"));
                 }
             }
         }
