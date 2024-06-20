@@ -159,7 +159,7 @@ public class UserService {
     public void setLocation(UsersRequest message) {
         try (java.sql.Connection connection = dataSource.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(
-                 "UPDATE users SET location = ? WHERE slug = ?")) {
+                 "UPDATE users SET currentlocation = ? WHERE slug = ?")) {
             preparedStatement.setString(1, message.getLocation());
             preparedStatement.setString(2, message.getSlug());
             preparedStatement.executeUpdate();
